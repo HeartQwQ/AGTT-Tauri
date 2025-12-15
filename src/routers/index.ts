@@ -1,9 +1,5 @@
 import { createMemoryHistory, createRouter } from 'vue-router'
-import { SquareTerminal } from 'lucide-vue-next'
-
-import Home from '../pages/Home.vue'
-import RewardTraversal from '../pages/autoTest/RewardTraversal.vue'
-import Qt from '../pages/autoTest/Qt.vue'
+import { SquareTerminal, House } from 'lucide-vue-next'
 
 export const routes = [
   {
@@ -12,34 +8,50 @@ export const routes = [
   },
   {
     path: '/home',
-    component: Home,
+    component: () => import('@/pages/Home.vue'),
     meta: {
       title: '首页',
-      icon: SquareTerminal,
+      icon: House,
       order: 0,
     }
   },
   {
-    path: '/autoTest',
+    path: '/reward',
     meta: {
-      title: '自动化',
+      title: '奖励遍历',
       icon: SquareTerminal,
       order: 1,
     },
     children: [
       {
-        path: 'reward-traversal',
-        component: RewardTraversal,
+        path: 'redeem',
+        component: () => import('@/pages/reward/Redeem.vue'),
         meta: {
-          title: '奖励遍历',
+          title: '兑换商店',
           order: 0
         }
       },
       {
         path: 'qt',
-        component: Qt,
+        component: () => import('@/pages/reward/Qt.vue'),
         meta: {
-          title: '其他',
+          title: '单抽/十连',
+          order: 1
+        }
+      },
+      {
+        path: 'qt',
+        component: () => import('@/pages/reward/Qt.vue'),
+        meta: {
+          title: '分解',
+          order: 1
+        }
+      },
+      {
+        path: 'table',
+        component: () => import('@/pages/reward/Table.vue'),
+        meta: {
+          title: '表格',
           order: 1
         }
       },

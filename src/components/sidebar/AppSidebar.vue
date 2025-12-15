@@ -20,6 +20,7 @@ import {
 const props = withDefaults(defineProps<SidebarProps>(), {
   collapsible: "icon",
 })
+import { routes } from "@/routers/index"
 
 // 用户和团队数据
 const data = {
@@ -46,8 +47,6 @@ const data = {
     },
   ],
 }
-
-import { routes } from "@/routers/index"
 </script>
 
 <template>
@@ -57,11 +56,11 @@ import { routes } from "@/routers/index"
     </SidebarHeader>
     <SidebarContent>
       <NavMain :items="routes" />
-      <!-- <NavProjects :projects="data.projects" /> -->
+      <!-- <NavProjects :projects="routes" /> -->
     </SidebarContent>
     <SidebarFooter>
       <NavUser :user="data.user" />
     </SidebarFooter>
-    <!-- <SidebarRail /> -->
+    <SidebarRail />
   </Sidebar>
 </template>

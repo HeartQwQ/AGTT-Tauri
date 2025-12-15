@@ -2,11 +2,18 @@ import path from 'node:path'
 import tailwindcss from '@tailwindcss/vite'
 import vue from '@vitejs/plugin-vue'
 import { defineConfig } from 'vite'
+import Icons from 'unplugin-icons/vite'
 
 const host = process.env.TAURI_DEV_HOST;
 
 export default defineConfig({
-  plugins: [vue(), tailwindcss()],
+  plugins: [vue(), tailwindcss(),
+    Icons({
+      compiler: 'vue3', // 2. 指定目标框架 (Vue 3)
+      defaultClass: 'icon', // 3. 为所有图标添加默认类名
+      autoInstall: true, // 4. 【关键】自动安装图标集（如 radix-icons）
+    }),
+  ],
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

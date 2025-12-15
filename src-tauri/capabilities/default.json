@@ -31,6 +31,7 @@
         }
       ],
       "deny": []
-    }
+    },
+    "dialog:default"
   ]
 }
