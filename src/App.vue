@@ -29,6 +29,7 @@ import {
   SidebarTrigger,
 } from "@/components/ui/sidebar"
 
+import Toaster from '@/components/ui/toast/Toaster.vue'
 
 import { computed } from 'vue';
 import { useRoute, useRouter } from 'vue-router'
@@ -79,6 +80,7 @@ console.log(breadcrumbList)
 </script>
 
 <template>
+  <Toaster />
   <SidebarProvider>
     <AppSidebar />
     <SidebarInset>
